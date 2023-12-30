@@ -10,8 +10,9 @@
 </head>
 
 <body>
-    <h2>QR BANAO</h2>
+
     <div class="container">
+        <h2>QR BANAO</h2>
         <p>Enter Your text or url</p>
         <input type="text" placeholder="Text or URL" id="qrText">
 
@@ -20,6 +21,9 @@
         </div>
 
         <BUTTon onclick="GenerateQR()">Generate QR Code</BUTTon>
+        <button onclick="SaveQR()">Save QR Code</button>
+        <button onclick="ShareQR()" id="shareBtn">Share QR Code</button>
+
     </div>
 
     <script>
@@ -42,7 +46,48 @@
             }
 
         }
+        function SaveQR() {
+            if (imgBox.classList.contains("show-img")) {
+                var link = document.createElement('a');
+                link.href = qrImage.src;
+                link.download = 'qrcode.png';
+                link.click();
+            }
+        }
 
+       
+        
+            document.querySelector('#shareBtn')
+        .addEventListener('click', event => {
+ 
+            // Fallback, Tries to use API only
+            // if navigator.share function is
+            // available
+            if (navigator.share) {
+                navigator.share({
+ 
+                    // Title that occurs over
+                    // web share dialog
+                    title: 'Generate and share your Own QR code',
+ 
+                    // URL to share
+                    url: 'https://codepen.io/ayoisaiah/pen/YbNazJ'
+                }).then(() => {
+                    console.log('Thanks for sharing!');
+                }).catch(err => {
+ 
+                    // Handle errors, if occurred
+                    console.log(
+                    "Error while using Web share API:");
+                    console.log(err);
+                });
+            } else {
+ 
+                // Alerts user if API not available 
+                alert("Browser doesn't support this API !");
+            }
+        })
+        
     </script>
 
 </body>

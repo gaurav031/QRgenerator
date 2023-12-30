@@ -10,11 +10,12 @@ body {
     background: linear-gradient(90deg, rgba(227,226,230,1) 6%, rgba(88,108,249,1) 100%);
 }
 h2{
-    margin-left: 650px;
+   
     font-weight: bold;
-    padding-top: 40px;
-    color: black;
+    padding-top: 0px;
+    color:red;
     font-size: 35px;
+    text-align: center;
    
 
 }
@@ -22,7 +23,7 @@ h2{
 .container {
     width: 400px;
     padding: 25px 35px;
-    margin-top: px;
+    margin-top: 0px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -62,6 +63,7 @@ h2{
     margin: 20px 0;
     font-weight: 500;
     border: 3px solid #fff;
+    margin-bottom: 1px;
 }
 
 #imgBox {
